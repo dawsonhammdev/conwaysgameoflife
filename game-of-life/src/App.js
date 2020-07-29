@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useRef } from "react";
 import produce from "immer";
+import { GoMarkGithub } from "react-icons/go";
 
-const numRows = 50;
-const numCols = 50;
+const numRows = 25;
+const numCols = 25;
 
 const operations = [
   [0, 1],
@@ -67,6 +68,55 @@ const App = () => {
 
   return (
     <>
+      <h1>The Game of Life</h1>
+      <div className="page-container">
+        <div className="main">
+          <h2> Rules </h2>
+          <ul>
+            <li>
+              Any live cell with fewer than two live neighbours dies, as if by
+              underpopulation.
+            </li>
+            <li>
+              Any live cell with two or three live neighbors lives on to the
+              next generation
+            </li>
+            <li>
+              Any live cell with more than three live neighbours dies, as if by
+              overpopulation.
+            </li>
+            <li>
+              Any dead cell with three live neighbours becomes a live cell, as
+              if by reproduction
+            </li>
+          </ul>
+          <h2> About this Algorithm</h2>
+          <p>
+            {" "}
+            The Game of Life is a cellular automation devised by British
+            mathmetician John Horton Conway in 1970. A cellular automaton
+            consists of a regular grid of cells, whith each cell being in a
+            certain state, such as "dead" or "alive". 
+            <br/>
+            <br/>
+            In Conway's Game of Life,
+            each cell looks at its eight neighbors to determine it's state. The
+            grid is a two-dimensional array of rows and collumns. 
+            <br/>
+            <br/>
+            To look at
+            neighbors I've built a for loop that runs through each column of
+            each row and looks at each neighbor using a helper function. Using
+            the count of neighbors, a copy of the grid updates it cells
+            accordingly. When the loop has ran through the whole grid, the
+            original grid is replaced with the copy. This is a double buffer and
+            was implemented using the React useState hook.
+          </p>
+
+          <a href="https://github.com/dawsonhammdev/conwaysgameoflife"> Check out the repo on GitHub <GoMarkGithub className="ghIcon"/></a> 
+        </div>
+      </div>
+
       <button
         onClick={() => {
           setRunning(!running);
@@ -118,8 +168,8 @@ const App = () => {
               style={{
                 width: 20,
                 height: 20,
-                backgroundColor: grid[i][k] ? "pink" : undefined,
-                border: "solid 1px black"
+                backgroundColor: grid[i][k] ? "red" : undefined,
+                border: "solid 1px blue"
               }}
             />
           ))

@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+.page-container {
+  display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media (max-width: 1027px) {
+  .page-container {
+    flex-direction: column;
+  } 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.box {
+  /* border: 1px solid rgb(106, 114, 113); */
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  /* margin-left: -1px; */
+  /* margin-bottom: -1px; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.on {
+  background-color: rgb(83, 226, 167);
+}
+
+.off {
+  background-color: rgb(43, 55, 59);
+}
+
+.box:hover {
+  opacity: 0.2;
+}
+
+.grid {
+  width: 150px;
+  line-height: 0;
+  margin: 20px;
+  margin-bottom: 5px;
+}
+
+.grid-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.main {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.words {
+  width: 100%;
+  margin-top: 40px;
+  margin-right: 20px;
+}
+
+.words p,
+a {
+  margin: 20px;
+  line-height: 1.5;
+}
+
+.words a {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(233, 148, 108);
+  margin-right: 5px;
+}
+
+.words a:hover {
+  color: rgb(145, 221, 170);
+}
+
+.instructions {
+  margin: 20px;
+}
+
+.buttons {
+  display: flex;
+  margin-left: 20px;
+}
+
+.ghIcon {
+  font-size: 30px;
+}
+
+button {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: rgb(145, 221, 170);
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 120px;
+  margin-left: 0;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: rgb(233, 148, 108);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1,
+h2,
+h3,
+h4 {
+  color: rgb(235, 117, 63);
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  margin-top: 10px;
+}
+
+h2 {
+  margin: 20px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+li {
+  margin: 10px auto;
 }
